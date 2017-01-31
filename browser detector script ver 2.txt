@@ -1,0 +1,32 @@
+function mobileBrowserDetect()
+{
+$mobileUA = false;
+
+$op = strtolower($_SERVER['HTTP_X_OPERAMINI_PHONE']);
+$ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+$ac = strtolower($_SERVER['HTTP_ACCEPT']);
+//first, it tests to see if the browser accepts the WAP application type
+//then it checks for the (unused) environment variable HTTP_X_OPERAMINI_PHONE that is sent when data is sent thru operas servers
+//then it looks to see if popular mobile browser brands are present in the user agent string
+$mobileUA = (strpos($ac, 'wap') !== false || $op != '' || strpos($ua, 'sony') !== false
+|| strpos($ua, 'symbian') !== false || strpos($ua, 'nokia') !== false || strpos($ua, 'samsung') !== false
+|| strpos($ua, 'mobile') !== false || strpos($ua, 'windows ce') !== false || strpos($ua, 'epoc') !== false
+|| strpos($ua, 'opera mini') !== false || strpos($ua, 'nitro') !== false || strpos($ua, 'j2me') !== false
+|| strpos($ua, 'midp-') !== false || strpos($ua, 'cldc-') !== false || strpos($ua, 'netfront') !== false
+|| strpos($ua, 'mot') !== false || strpos($ua, 'up.browser') !== false || strpos($ua, 'up.link') !== false
+|| strpos($ua, 'audiovox') !== false || strpos($ua, 'blackberry') !== false || strpos($ua, 'ericsson,') !== false
+|| strpos($ua, 'panasonic') !== false || strpos($ua, 'philips') !== false || strpos($ua, 'sanyo') !== false
+|| strpos($ua, 'sharp') !== false || strpos($ua, 'sie-') !== false || strpos($ua, 'portalmmm') !== false
+|| strpos($ua, 'blazer') !== false || strpos($ua, 'avantgo') !== false || strpos($ua, 'danger') !== false
+|| strpos($ua, 'palm') !== false || strpos($ua, 'series60') !== false || strpos($ua, 'pocketpc') !== false
+|| strpos($ua, 'smartphone') !== false || strpos($ua, 'rover') !== false || strpos($ua, 'wap') !== false
+|| strpos($ua, 'ipaq') !== false || strpos($ua, 'au-mic,') !== false || strpos($ua, 'alcatel') !== false
+|| strpos($ua, 'ericy') !== false || strpos($ua, 'up.link') !== false || strpos($ua, 'vodafone/') !== false) ? true : false;
+
+//if any of the above is true, redirect to the URI below
+if($mobileUA === true) { header('location:http://mobile.urDomain.com'); }
+return "<script type=\"text/javascript\">\n\tif(screen.width < 800)\n\t{\n\t\twindow.location = \"http://mobile.urDomain.com\";\n\t}\n</script>";
+}
+
+
+
