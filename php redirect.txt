@@ -1,0 +1,6 @@
+<?php
+// Permanent redirection
+header("HTTP/1.1 301 Moved Permanently");
+header("Location: http://delraycomputer.com/web_design_price_sheet.php");
+exit();
+?>

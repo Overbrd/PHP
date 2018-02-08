@@ -1,0 +1,48 @@
+add to index.php
+
+
+<?php 
+$imagearray=file('backgrounds.inc.php'); 
+$imagenum=rand(0,count($imagearray)-1); 
+?>
+
+
+
+
+add to template css
+
+div.bgimgcontainer { 
+padding : 95px 20px 20px 161px; 
+background: url(<?php echo $imagearray[$imagenum];?>); 
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center center;
+min-height: 484px;
+}
+
+
+
+add to template php
+
+<div class="bgimgcontainer">
+
+content 
+
+</div>
+
+
+make file backgrounds.inc.php
+
+add code
+
+put in html folder, root
+
+/images/contentbg.jpg
+/images/contentbg2.jpg
+/images/contentbg3.jpg
+/images/contentbg4.jpg
+/images/contentbg5.jpg
+/images/contentbg6.jpg
+/images/contentbg7.jpg
+/images/contentbg8.jpg
+/images/contentbg9.jpg
